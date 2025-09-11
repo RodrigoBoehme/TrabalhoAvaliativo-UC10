@@ -28,8 +28,6 @@ public class task {
                         System.out.println((i + 1) + ". " + tarefas.get(i).getNome());
                     }
                     System.out.println(i+1+". Sair");
-                    int opc=scanner.nextLine();
-                    if(opc.equals)
 
                     
                 }
