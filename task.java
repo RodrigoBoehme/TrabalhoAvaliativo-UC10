@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GerenciadorTarefas {
+public class task {
 
     public static void main(String[] args) {
         System.out.println("Bem-vindo ao sistema de gerenciamento de tarefas LEGADO!");
         System.out.println("Este código não usa classes e métodos para simular um projeto antigo.");
-        ArrayList<String> tarefas = new ArrayList<>();
+        ArrayList<Tarefa> tarefas = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         String entrada = "";
         
@@ -22,9 +22,16 @@ public class GerenciadorTarefas {
                 if (tarefas.isEmpty()) {
                     System.out.println("Nenhuma tarefa cadastrada.");
                 } else {
-                    for (int i = 0; i < tarefas.size(); i++) {
-                        System.out.println((i + 1) + ". " + tarefas.get(i));
+                    System.out.println("Selecione uma opcao: ");
+                    int i=0;
+                    for (i; i < tarefas.size(); i++) {
+                        System.out.println((i + 1) + ". " + tarefas.get(i).getNome());
                     }
+                    System.out.println(i+1+". Sair");
+                    int opc=scanner.nextLine();
+                    if(opc.equals)
+
+                    
                 }
             } else if (entrada.equals("2")) {
                 System.out.println("Saindo do programa. Até mais!");
@@ -35,4 +42,13 @@ public class GerenciadorTarefas {
         }
         scanner.close();
     }
+    private void function detalhesDaTarefa(Tarefa tarefa){
+        System.out.println("Tarefa: "+tarefa.getNome());
+        System.out.println("Descricao: "+tarefa.getDescricao(););
+        System.out.println("Data de Inicio: "=tarefa.getDataInicio());
+        System.out.println("Prazo: "=tarefa.getPrazo());
+        System.out.println("Continuar?");
+        scanner.nextLine();
+    }
+
 }
