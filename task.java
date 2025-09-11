@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import Model.Tarefa;
 
 public class task {
@@ -11,7 +12,7 @@ public class task {
         Scanner scanner = new Scanner(System.in);
         String entrada = "";
         int opt;
-        
+
         while (true) {
             System.out.println("\n--- Menu Principal ---");
             System.out.println("1. Listar Tarefas");
@@ -25,14 +26,15 @@ public class task {
                     System.out.println("Nenhuma tarefa cadastrada.");
                 } else {
                     System.out.println("Selecione uma opcao: ");
-                    listarTarefas();
+                    listarTarefas(tarefas);
 
-                    opt=scanner.nextLine();
-                    if(opt==tarefas.size()||opt>=tarefas.size()||opt<=0){
+                    opt = scanner.nextInt();
+                    if (opt == tarefas.size() || opt >= tarefas.size() || opt <= 0) {
                         System.out.println("Saindo...");
                         return;
+                    } else {
+                        detalhesDaTarefa(tarefas.get(opt));
                     }
-                    else{detalhesDaTarefa(tarefas.get(opt));}
                 }
             } else if (entrada.equals("2")) {
                 System.out.println("Saindo do programa. Até mais!");
@@ -41,25 +43,26 @@ public class task {
                 System.out.println("Opção inválida. Tente novamente.");
             }
         }
-    private void function listarTarefas(){
 
-       int i=0;
-        for (i; i < tarefas.size(); i++) {
+        scanner.close();
+    }
+    static void listarTarefas (ArrayList<Tarefa> tarefas) {
+
+        for (int i = 0; i < tarefas.size(); i++) {
             System.out.println((i + 1) + ". " + tarefas.get(i).getNome());
         }
-        System.out.println("Sair?")
+        System.out.println("Sair?");
 
     }
-        
-    private void function detalhesDaTarefa(Tarefa tarefa){
-        System.out.println("Tarefa: "+tarefa.getNome());
-        System.out.println("Descricao: "+tarefa.getDescricao(););
-        System.out.println("Data de Inicio: "=tarefa.getDataInicio());
-        System.out.println("Prazo: "=tarefa.getPrazo());
+
+    static void detalhesDaTarefa (Tarefa tarefa){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Tarefa: " + tarefa.getNome());
+        System.out.println("Descricao: " + tarefa.getDescricao());
+        System.out.println("Data de Inicio: " + tarefa.getDataInicio());
+        System.out.println("Prazo: " + tarefa.getPrazo());
         System.out.println("Continuar?");
         scanner.nextLine();
-    }
-        scanner.close();
     }
 
 }
