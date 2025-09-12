@@ -26,6 +26,7 @@ public class task {
             System.out.println("\n--- Menu Principal ---");
             System.out.println("1. Listar Tarefas");
             System.out.println("2. Adicionar um Tarefa");
+            System.out.println("3. Apagar uma tarefa");
             System.out.println("3. Sair");
             System.out.print("Escolha uma opção: ");
             entrada = scanner.nextLine();
@@ -46,7 +47,7 @@ public class task {
                         detalhesDaTarefa(tarefas.get(opt));
                     }
                 }
-            } else if (entrada.equals("3")) {
+            } else if (entrada.equals("4")) {
                 System.out.println("Saindo do programa. Até mais!");
                 break;
             } else if(entrada.equals("2")){
@@ -57,6 +58,20 @@ public class task {
                 System.out.println("Digite a data de finalizacao da tarefa: ");
                 String data=scanner.nextLine();
                 adicionarItem(nometarefa,descricao,new Date(data),tarefas);
+            }
+            else if (entrada.equals("3")) {
+                System.out.println("\n ----Lista de tarefas para apagar---- ");
+                if(tarefas.isEmpty()) {
+                    System.out.println("---- Nenhuma tarefa cadastrada ----");
+                } else { listarTarefas(tarefas);
+                    opt = scanner.nextInt()-1;
+                    if(opt == tarefas.size() || opt >= tarefas.size() || opt < 0) {
+                        System.out.println("Opçao invalida, voltando...");
+                    } else {
+                        System.out.println(" Apagando tarefa: " + tarefas.get(opt).getNome());
+                        tarefas.remove(opt);
+                    }
+                }
             }
 
 
