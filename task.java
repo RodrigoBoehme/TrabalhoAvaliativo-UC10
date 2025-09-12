@@ -1,44 +1,20 @@
-
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
-public class TarefaManager {
-    private List<Tarefa> listaTarefas;
-
-    public TarefaManager() {
-        this.listaTarefas = new ArrayList<>();
-    }
-
-   
-    public void adicionarItem(String nome, String descricao, Date prazo) {
-        Tarefa novaTarefa = new Tarefa(nome, descricao, prazo);
-        listaTarefas.add(novaTarefa);
-        System.out.println("Tarefa adicionada: " + novaTarefa.getNome());
-    }
-
-    public List<Tarefa> getListaTarefas() {
-        return listaTarefas;
-    }
-}
 import Model.Tarefa;
+
 
 public class task {
 
 
-public class Main {
+
+
     public static void main(String[] args) {
-        TarefaManager manager = new TarefaManager();
 
-       
-        manager.adicionarItem("Estudar Java", "Ler sobre MVC e JDBC", new Date());
 
-        
-        manager.getListaTarefas().forEach(t -> 
-            System.out.println("Nome: " + t.getNome() + " | Prazo: " + t.getPrazo())
-        );
-=======
+
         System.out.println("Bem-vindo ao sistema de gerenciamento de tarefas LEGADO!");
         System.out.println("Este código não usa classes e métodos para simular um projeto antigo.");
         ArrayList<Tarefa> tarefas = new ArrayList<>();
@@ -49,7 +25,8 @@ public class Main {
         while (true) {
             System.out.println("\n--- Menu Principal ---");
             System.out.println("1. Listar Tarefas");
-            System.out.println("2. Sair");
+            System.out.println("2. Adicionar um Tarefa");
+            System.out.println("3. Sair");
             System.out.print("Escolha uma opção: ");
             entrada = scanner.nextLine();
 
@@ -69,10 +46,22 @@ public class Main {
                         detalhesDaTarefa(tarefas.get(opt));
                     }
                 }
-            } else if (entrada.equals("2")) {
+            } else if (entrada.equals("3")) {
                 System.out.println("Saindo do programa. Até mais!");
                 break;
-            } else {
+            } else if(entrada.equals("2")){
+                System.out.println("Digite o nome da tarefa: ");
+                String nometarefa=scanner.nextLine();
+                System.out.println("Digite a descricao da tarefa: ");
+                String descricao=scanner.nextLine();
+                System.out.println("Digite a data de finalizacao da tarefa: ");
+                String data=scanner.nextLine();
+                adicionarItem(nometarefa,descricao,new Date(data),tarefas);
+            }
+
+
+
+            else {
                 System.out.println("Opção inválida. Tente novamente.");
             }
         }
@@ -97,5 +86,12 @@ public class Main {
         System.out.println("Continuar?");
         scanner.nextLine();
     }
+    static void adicionarItem(String nome, String descricao, Date prazo,ArrayList<Tarefa> tarefas) {
+        Tarefa novaTarefa = new Tarefa(nome, descricao, prazo);
+        tarefas.add(novaTarefa);
+        System.out.println("Tarefa adicionada: " + novaTarefa.getNome());
+    }
+
+
 
 }
